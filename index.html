@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Property Guys | Premium Real Estate Solutions</title>
     <!-- Primary Meta Tags -->
 <meta property="og:title" content="The Property Guys | Premium Real Estate Solutions">
 <meta property="og:description" content="Find dream homes in DHA Lahore, Islamabad & Rawalpindi. Expert property services in Pakistan.">
@@ -21,6 +20,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="The Property Guys Logo">
+    <title>The Property Guys | Premium Real Estate Solutions</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="icon" href="logo.png" type="image/png" />
     <link rel="apple-touch-icon" href="logo.png" />
@@ -286,8 +286,7 @@ body {
   .mobile-menu {
     margin-left: 0; /* Removes any extra space */
   }
-}
-      .mobile-menu-container {
+  .mobile-menu-container {
   position: fixed;
   top: 0;
   left: -100%;
@@ -1766,7 +1765,27 @@ body {
         mobileMenuOverlay.classList.remove("active");
         document.body.style.overflow = "";
       });
+// Toggle menu
+mobileMenuButton.addEventListener('click', () => {
+  mobileMenuContainer.classList.add('active');
+  mobileMenuOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+});
 
+// Close menu
+function closeMenu() {
+  mobileMenuContainer.classList.remove('active');
+  mobileMenuOverlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+closeMobileMenu.addEventListener('click', closeMenu);
+mobileMenuOverlay.addEventListener('click', closeMenu);
+
+// Close when clicking nav links
+document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
       // Property Modal
       const propertyCards = document.querySelectorAll(".property-card");
       const modal = document.querySelector(".modal");
@@ -1950,32 +1969,6 @@ function updateBodyPadding() {
 
 window.addEventListener('load', updateBodyPadding);
 window.addEventListener('resize', updateBodyPadding);
-      / Toggle menu
-mobileMenuButton.addEventListener('click', () => {
-  mobileMenuContainer.classList.add('active');
-  mobileMenuOverlay.classList.add('active');
-  document.body.style.overflow = 'hidden';
-});
-// Toggle menu
-mobileMenuButton.addEventListener('click', () => {
-  mobileMenuContainer.classList.add('active');
-  mobileMenuOverlay.classList.add('active');
-  document.body.style.overflow = 'hidden';
-});
-// Close menu
-function closeMenu() {
-  mobileMenuContainer.classList.remove('active');
-  mobileMenuOverlay.classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-closeMobileMenu.addEventListener('click', closeMenu);
-mobileMenuOverlay.addEventListener('click', closeMenu);
-
-// Close when clicking nav links
-document.querySelectorAll('.mobile-nav-links a').forEach(link => {
-  link.addEventListener('click', closeMenu);
-});
     </script>
   </body>
 </html>
