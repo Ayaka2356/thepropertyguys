@@ -1956,7 +1956,12 @@ mobileMenuButton.addEventListener('click', () => {
   mobileMenuOverlay.classList.add('active');
   document.body.style.overflow = 'hidden';
 });
-
+// Toggle menu
+mobileMenuButton.addEventListener('click', () => {
+  mobileMenuContainer.classList.add('active');
+  mobileMenuOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+});
 // Close menu
 function closeMenu() {
   mobileMenuContainer.classList.remove('active');
